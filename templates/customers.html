@@ -1,0 +1,134 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Customers</title>
+	<meta name="viewport" content="width=device-width, intial-scale=1.0">
+	<link rel="stylesheet" href="{% static 'CSS/style.css' %}">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+	body{
+		font-family: montserrat;
+		background: #c0d1d0;
+	}
+	nav ul li{
+		display: inline-block;
+		line-height: 50px;
+		margin: 05px;
+	}
+	nav ul li a{
+		color: #36403f;
+		font-size: 17px;
+		padding: 7px 13px;
+		border: 3px;
+		text-transform: uppercase;
+	}
+	.heading{
+		color: #4a4b4f;
+		font-size: 50px;
+		line-height: 60px;
+		padding: 0 50px;
+		font-weight: bold;
+	}
+	.center form{
+		padding: 0 40px;
+		box-sizing: border-box;
+	}
+	input[type=text], #email,input[type=email]{
+	  width: 100%;
+	  padding: 12px 20px;
+	  margin: 8px 0;
+	  display: inline-block;
+	  border: 1px solid #ccc;
+	  border-radius: 4px;
+	  box-sizing: border-box;
+	}
+	input[type=submit] {
+	  width: 100%;
+	  background-color: #4CAF50;
+	  color: white;
+	  padding: 14px 20px;
+	  margin: 8px 0;
+	  border: none;
+	  border-radius: 4px;
+	  cursor: pointer;
+	}
+	.t1{
+		color: black;
+		font-size: 30px;
+		line-height: 40px;
+		font-weight: bold;
+	}
+	.table1 thead tr{
+		background-color: grey;
+		color: white;
+		text-align: left;
+		font-weight: bold;
+		font-size: 1.3em;
+	}
+</style>
+</head>
+<body>
+	<nav>
+			<i class="fa fa-bars"></i>
+		<label class="logo">Basic Banking System</label>
+		<ul>
+			<li><a href="home">Home</a></li>
+			<li><a class="active" href="customers">Customers</a></li>
+			<li><a href="trans">Transactions</a></li>
+		</ul>
+	</nav>
+	<label class="heading">Banking System</label><br>
+	<aside>
+	<div class="center">
+		<h2 class="t2">SEND MONEY</h2>
+		<form method="post">{% csrf_token %}
+		<div class="text-field">
+			<label>Email</label>
+			<input type="Email" name="semail" placeholder="Enter your Email">
+		</div>
+		<div class="text-field">
+			<label>Amount</label>
+			<input type="text" name="amt" placeholder="Enter Amount">
+		</div>
+			<select id="email" name="email">
+				<option value="taseenansar@gmail.com">Select Reciever Email</option>
+				{% for i in customers %}
+				<option value="{{i.email}}">{{i.name}}</option>
+				{% endfor %}
+
+			</select><br>
+			<input type="submit" name="submit" value="SEND">
+		</form>
+	</div>
+
+	</aside>
+	<section>
+		<label class="t1">Customers Detail</label>
+		<table class="table1">
+			<thead>
+				<tr>
+					<th>No.</th>
+					<th>Name</th>
+					<th>Email</th>
+					<th>Acc. Bal</th>
+				</tr>
+			</thead>
+			<body>
+				{% for i in customers %}
+				<tr>
+					<td>{{i.id}}</td>
+					<td>{{i.name}}</td>
+					<td>{{i.email}}</td>
+					<td>{{i.avail_bal}}₹</td>
+				</tr>
+				{% endfor %}
+			</body>
+
+		</table>
+	</section>
+	
+
+</body>
+</html>

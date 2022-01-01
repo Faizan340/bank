@@ -1,0 +1,93 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Transactions</title>
+	<meta name="viewport" content="width=device-width, intial-scale=1.0">
+	<link rel="stylesheet" href="{% static 'CSS/style.css' %}">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+	body{
+		font-family: montserrat;
+		background: #c0d1d0;
+	}
+	nav ul li{
+		display: inline-block;
+		line-height: 50px;
+		margin: 05px;
+	}
+	nav ul li a{
+		color: #36403f;
+		font-size: 17px;
+		padding: 7px 13px;
+		border: 3px;
+		text-transform: uppercase;
+	}
+	.heading{
+		color: #4a4b4f;
+		font-size: 50px;
+		line-height: 60px;
+		padding: 0 50px;
+		font-weight: bold;
+	}
+	.t1{
+		color: black;
+		margin: 8px 0;
+		font-size: 30px;
+		line-height: 40px;
+		font-weight: bold;
+	}
+	.table1 thead tr{
+		background-color: grey;
+		color: white;
+		text-align: left;
+		font-weight: bold;
+		font-size: 1.3em;
+	}
+</style>
+</head>
+<body>
+	<nav>
+			<i class="fa fa-bars"></i>
+		<label class="logo">Basic Banking System</label>
+		<ul>
+			<li><a href="home">Home</a></li>
+			<li><a href="customers">Customers</a></li>
+			<li><a class="active" href="trans">Transactions</a></li>
+		</ul>
+	</nav>
+	<section>
+		<label class="heading">TSF Basic Banking System</label><br>
+		<label class="t1">Transactions Detail</label>
+		<table class="table1">
+			<thead>
+				<tr>
+					<th>No.</th>
+					<th>Name</th>
+					<th>Email</th>
+					<th>Amount Debited</th>
+					<th>Amount Credited</th>
+					<th>Acc. Bal</th>
+				</tr>
+			</thead>
+			<body>
+				{% for i in trans %}
+				<tr>
+					<td>{{i.id}}</td>
+					<td>{{i.name}}</td>
+					<td>{{i.email}}</td>
+					<td>{{i.deb_amt}}</td>
+					<td>{{i.cr_amt}}</td>
+					<td>{{i.ac_bal}}₹</td>
+				</tr>
+				{% endfor %}
+			</body>
+
+		</table>
+		<label id="Refresh"><a href="trans">Refresh</a></label>
+	</section>
+	
+
+</body>
+</html>

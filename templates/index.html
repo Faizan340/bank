@@ -1,0 +1,73 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Home TSF</title>
+	<meta name="viewport" content="width=device-width, intial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'CSS/style.css' %}">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+	body{
+		font-family: montserrat;
+		background: #c0d1d0;
+	}
+	nav ul li{
+		display: inline-block;
+		line-height: 80px;
+		margin: 05px;
+	}
+	nav ul li a{
+		color: #36403f;
+		font-size: 17px;
+		padding: 7px 13px;
+		border: 3px;
+		text-transform: uppercase;
+	}
+	.heading{
+		color: #4a4b4f;
+		font-size: 50px;
+		line-height: 80px;
+		padding: 0 50px;
+		font-weight: bold;
+	}
+	.p1{
+		font-family: serif,Cursive ;
+		color: black;
+		font-size: 30px;
+		line-height: 50px;
+		padding: 0 50px;
+		font-weight: em;
+	}
+	.writter{
+		color: #363638;
+		font-size: 15px;
+		line-height: 50px;
+		padding: 0 50px;
+	}
+</style>
+</head>
+<body>
+	<nav>
+		
+			<i class="fa fa-bars"></i>
+		<label class="logo">Basic Banking System</label>
+		<ul>
+			<li><a class="active" href="home">Home</a></li>
+			<li><a href="customers">Customers</a></li>
+			<li><a href="trans">Transaction</a></li>
+		</ul>
+	</nav>
+	<section>
+		<label class="heading">Basic Banking System</label>
+		<p class="p1">A banking system is a group or network of institutions that provide financial services for us.<br>
+			<br>
+			           "GOOD BANKING IS PRODUCED<br>
+					   NOT BY GOOD LAWS,<br>
+			           BUT BY GOOD BANKERS"</p>
+		<label class="writter">~HARTLEY WITHERS</label>
+	</section>
+	
+
+</body>
+</html>
